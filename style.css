@@ -1,0 +1,92 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-image: url('bkg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    /* Extra space at the bottom so content doesn't hit the footer */
+    padding-bottom: 60px; 
+}
+
+.container {
+    background: rgba(240, 240, 240, 0.95); 
+    padding: 2rem;
+    border-radius: 10px;
+    border: 6px solid #0085cc; 
+    box-shadow: 10px 10px 0px #000; 
+    text-align: center;
+    width: 400px;
+    overflow: hidden; 
+    margin-bottom: 20px; /* Space between Pokedex and Footer */
+}
+
+h1 {
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    width: 80%;
+    border: 3px solid #313131;
+    border-radius: 0;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #0085cc; 
+    color: white;
+    border: 3px solid #000;
+    border-radius: 0;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: #ffde00; 
+    color: #000;
+}
+
+#pokeimg {
+    display: block;
+    margin: 50px auto; /* Large margin to account for the scale growth */
+    width: 150px;      /* Base box size */
+    height: auto;
+    
+    /* THE BIG FIX: Scale makes the Pokemon huge without pushing layout */
+    transform: scale(2.2); 
+    
+    image-rendering: pixelated; 
+    filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.3));
+}
+
+footer {
+    position: fixed;   /* Sticks it to the viewport */
+    bottom: 0;         /* Aligns it to the very bottom */
+    left: 0;           /* Starts at the left edge */
+    width: 100%;       /* Spans the full width of the screen */
+    
+    background:transparent; /* Darker for better contrast */
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    z-index: 10;       /* Ensures it stays on top of the background image */
+}
+
+footer h3 {
+    margin: 0;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
