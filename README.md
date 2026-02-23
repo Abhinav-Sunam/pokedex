@@ -16,9 +16,6 @@ This is a personal project I built while learning how to work with **External AP
 * **Vanilla JavaScript**: Focused on pure JS logic for DOM manipulation and API calls.
 * **CSS3**: Hand-coded the layout using Flexbox and added pixel-art rendering for that classic look.
 * **Git**: Used the command line to push updates and manage the repository.
-
-## 🔧 Note on Development (macOS)
-Since I developed this on a Mac, I learned a lot about managing project environments. For web projects like this, Git handles most of the heavy lifting. However, I’ve also noted that for more complex macOS software (like C++ JUCE apps), you sometimes have to manually fix library paths with `install_name_tool` and ensure correct code signing for external dependencies.
-
+  
 ---
 *Built by Abhinav as a Computer Science learning project.*
