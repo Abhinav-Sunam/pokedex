@@ -1,35 +1,35 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden; /* This stops all scrolling */
+}
+
 body {
     font-family: 'Courier New', Courier, monospace;
     background-image: url('bkg.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 20px; /* Padding for mobile breathing room */
 }
+
 
 .container {
     background: rgba(240, 240, 240, 0.98); 
-    padding: 2rem 1.5rem;
-    border-radius: 15px;
-    border: 6px solid #0085cc; 
-    box-shadow: 12px 12px 0px #000; 
+    padding: 1.5rem; /* Reduced padding */
+    border-radius: 12px;
+    border: 5px solid #0085cc; 
+    box-shadow: 8px 8px 0px #000; 
     text-align: center;
-    width: 100%;
-    max-width: 380px; /* Responsive: won't exceed this, but shrinks on mobile */
+    width: 85%;      /* Occupies less horizontal space */
+    max-width: 320px; /* Shrank from 380px to 320px */
     box-sizing: border-box;
 }
 
 h1 {
-    color: #000;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-top: 0;
-    font-size: 1.8rem;
+    font-size: 1.4rem; /* Smaller title */
+    margin-bottom: 15px;
 }
 
 /* Better input & button layout */
@@ -65,21 +65,13 @@ button:active {
 
 /* Image containment fix */
 .sprite-container {
-    margin-top: 30px;
-    min-height: 200px; /* Prevents container from jumping when image loads */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: visible;
+    margin-top: 20px;
+    min-height: 150px; 
 }
 
 #pokeimg {
-    display: block;
-    width: 96px; /* Original sprite size usually works best */
-    height: auto;
-    transform: scale(2.5); /* Big but controlled */
+    transform: scale(1.8); /* Reduced scale from 2.5 to 1.8 */
     image-rendering: pixelated; 
-    filter: drop-shadow(5px 5px 0px rgba(0,0,0,0.1));
 }
 
 footer {
