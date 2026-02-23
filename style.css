@@ -1,7 +1,9 @@
+/* 1. GLOBAL STYLES & LOCK SCROLLING */
 html, body {
     height: 100%;
     margin: 0;
-    overflow: hidden; /* This stops all scrolling */
+    padding: 0;
+    overflow: hidden; /* Fixes the "white space" scroll issue on mobile */
 }
 
 body {
@@ -9,39 +11,47 @@ body {
     background-image: url('bkg.jpg');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-
+/* 2. THE POKEDEX CONTAINER */
 .container {
     background: rgba(240, 240, 240, 0.98); 
     padding: 1.5rem;
-    border-radius: 12px;
-    border: 5px solid #0085cc; 
-    box-shadow: 8px 8px 0px #000; 
+    border-radius: 15px;
+    border: 6px solid #0085cc; 
+    box-shadow: 10px 10px 0px #000; 
     text-align: center;
-    width: 85%;      
-    max-width: 320px; 
+    width: 90%;          /* Responsive width for mobile */
+    max-width: 320px;    /* Compact size for desktop */
     box-sizing: border-box;
-    
-    /* Ensure the box can grow if a big Pokémon is loaded */
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 2;
 }
 
 h1 {
-    font-size: 1.4rem; /* Smaller title */
-    margin-bottom: 15px;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 0 0 15px 0;
+    font-size: 1.6rem;
 }
 
-/* Better input & button layout */
+/* 3. SEARCH FORM & INPUTS */
+form {
+    width: 100%;
+}
+
 .search-box {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 100%;
 }
 
 input {
@@ -51,68 +61,84 @@ input {
     font-size: 1rem;
     outline: none;
     text-align: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 button {
     padding: 12px;
-    background-color: #ffde00; /* Yellow by default feels more "Pokemon" */
+    background-color: #ffde00; 
     color: #000;
     border: 3px solid #000;
     cursor: pointer;
     font-weight: bold;
     text-transform: uppercase;
-    transition: transform 0.1s;
+    transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+    background-color: #0085cc;
+    color: white;
 }
 
 button:active {
     transform: translateY(2px);
 }
 
-/* Image containment fix */
+/* 4. POKEMON IMAGE AREA */
 .sprite-container {
     margin-top: 20px;
-    width: 100%;       /* Fill the width of the white box */
+    width: 100%;
+    min-height: 180px; /* Keeps layout stable while loading */
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;  /* Prevents the image from ever crossing the blue border */
-    min-height: 200px; /* Space reserved for the Pokémon */
+    overflow: hidden;  /* Keeps big Pokémon inside the box */
 }
 
 #pokeimg {
     display: block;
-    width: 180px;      /* Set a large fixed width instead of scaling */
-    height: auto;      /* Keeps proportions perfect */
+    /* RESPONSIVE SIZING: Fits any screen perfectly */
+    width: 85%;        
+    max-width: 180px;  
+    height: auto;
     
-    /* REMOVE the transform: scale line completely */
+    /* Pixel art settings */
     image-rendering: pixelated; 
-    filter: drop-shadow(5px 5px 0px rgba(0,0,0,0.1));
+    filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.1));
+    
+    /* Note: transform: scale removed to prevent overflow */
 }
 
+/* 5. FOOTER */
 footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Added slight bg for readability */
+    background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(5px);
     color: white;
-    padding: 10px 0;
+    padding: 12px 0;
     text-align: center;
+    z-index: 10;
 }
 
-/* MOBILE FIXES */
+footer h3 {
+    margin: 0;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* 6. TABLET/MOBILE TWEAKS */
 @media (max-width: 480px) {
     .container {
-        padding: 1.5rem 1rem;
-        border-width: 4px;
-        box-shadow: 8px 8px 0px #000;
+        padding: 1.2rem;
+        border-width: 5px;
+        box-shadow: 6px 6px 0px #000;
     }
 
     h1 {
-        font-size: 1.5rem;
-    }
-
-    #pokeimg {
-        transform: scale(2); /* Slightly smaller on tiny screens */
+        font-size: 1.4rem;
     }
 }
