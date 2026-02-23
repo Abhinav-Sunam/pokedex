@@ -9,84 +9,103 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    /* Extra space at the bottom so content doesn't hit the footer */
-    padding-bottom: 60px; 
+    padding: 20px; /* Padding for mobile breathing room */
 }
 
 .container {
-    background: rgba(240, 240, 240, 0.95); 
-    padding: 2rem;
-    border-radius: 10px;
+    background: rgba(240, 240, 240, 0.98); 
+    padding: 2rem 1.5rem;
+    border-radius: 15px;
     border: 6px solid #0085cc; 
-    box-shadow: 10px 10px 0px #000; 
+    box-shadow: 12px 12px 0px #000; 
     text-align: center;
-    width: 400px;
-    overflow: hidden; 
-    margin-bottom: 20px; /* Space between Pokedex and Footer */
+    width: 100%;
+    max-width: 380px; /* Responsive: won't exceed this, but shrinks on mobile */
+    box-sizing: border-box;
 }
 
 h1 {
-    color: #000000;
+    color: #000;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
+    letter-spacing: 3px;
+    margin-top: 0;
+    font-size: 1.8rem;
+}
+
+/* Better input & button layout */
+.search-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 input {
-    padding: 10px;
-    width: 80%;
+    padding: 12px;
     border: 3px solid #313131;
-    border-radius: 0;
     font-family: inherit;
     font-size: 1rem;
+    outline: none;
+    text-align: center;
 }
 
 button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    background-color: #0085cc; 
-    color: white;
+    padding: 12px;
+    background-color: #ffde00; /* Yellow by default feels more "Pokemon" */
+    color: #000;
     border: 3px solid #000;
-    border-radius: 0;
     cursor: pointer;
     font-weight: bold;
     text-transform: uppercase;
+    transition: transform 0.1s;
 }
 
-button:hover {
-    background-color: #ffde00; 
-    color: #000;
+button:active {
+    transform: translateY(2px);
+}
+
+/* Image containment fix */
+.sprite-container {
+    margin-top: 30px;
+    min-height: 200px; /* Prevents container from jumping when image loads */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
 }
 
 #pokeimg {
     display: block;
-    margin: 50px auto; /* Large margin to account for the scale growth */
-    width: 150px;      /* Base box size */
+    width: 96px; /* Original sprite size usually works best */
     height: auto;
-    
-    /* THE BIG FIX: Scale makes the Pokemon huge without pushing layout */
-    transform: scale(2.2); 
-    
+    transform: scale(2.5); /* Big but controlled */
     image-rendering: pixelated; 
-    filter: drop-shadow(0px 5px 10px rgba(0,0,0,0.3));
+    filter: drop-shadow(5px 5px 0px rgba(0,0,0,0.1));
 }
 
 footer {
-    position: fixed;   /* Sticks it to the viewport */
-    bottom: 0;         /* Aligns it to the very bottom */
-    left: 0;           /* Starts at the left edge */
-    width: 100%;       /* Spans the full width of the screen */
-    
-    background:transparent; /* Darker for better contrast */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Added slight bg for readability */
+    backdrop-filter: blur(5px);
     color: white;
-    padding: 15px 0;
+    padding: 10px 0;
     text-align: center;
-    z-index: 10;       /* Ensures it stays on top of the background image */
 }
 
-footer h3 {
-    margin: 0;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+/* MOBILE FIXES */
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem 1rem;
+        border-width: 4px;
+        box-shadow: 8px 8px 0px #000;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    #pokeimg {
+        transform: scale(2); /* Slightly smaller on tiny screens */
+    }
 }

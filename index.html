@@ -9,14 +9,18 @@
     
 </head>
 <body>
-   <div class="container">
+<div class="container">
     <h1>Pokédex</h1>
-    <form>
-        <input type="text" id="pokemon" placeholder="SEARCH POKEMON...">
-        <button type="submit">GO!</button> 
+    <form id="search-form">
+        <div class="search-box">
+            <input type="text" id="pokemon" placeholder="SEARCH POKEMON..." autocomplete="off">
+            <button type="submit">GO!</button> 
+        </div>
     </form>
     
-    <img src="" alt="poke" id="pokeimg" style="display:none;">
+    <div class="sprite-container">
+        <img src="" alt="poke" id="pokeimg" style="display:none;">
+    </div>
 </div>
 
 <footer>
