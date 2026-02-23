@@ -17,14 +17,19 @@ body {
 
 .container {
     background: rgba(240, 240, 240, 0.98); 
-    padding: 1.5rem; /* Reduced padding */
+    padding: 1.5rem;
     border-radius: 12px;
     border: 5px solid #0085cc; 
     box-shadow: 8px 8px 0px #000; 
     text-align: center;
-    width: 85%;      /* Occupies less horizontal space */
-    max-width: 320px; /* Shrank from 380px to 320px */
+    width: 85%;      
+    max-width: 320px; 
     box-sizing: border-box;
+    
+    /* Ensure the box can grow if a big Pokémon is loaded */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1 {
@@ -66,12 +71,22 @@ button:active {
 /* Image containment fix */
 .sprite-container {
     margin-top: 20px;
-    min-height: 150px; 
+    width: 100%;       /* Fill the width of the white box */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;  /* Prevents the image from ever crossing the blue border */
+    min-height: 200px; /* Space reserved for the Pokémon */
 }
 
 #pokeimg {
-    transform: scale(1.8); /* Reduced scale from 2.5 to 1.8 */
+    display: block;
+    width: 180px;      /* Set a large fixed width instead of scaling */
+    height: auto;      /* Keeps proportions perfect */
+    
+    /* REMOVE the transform: scale line completely */
     image-rendering: pixelated; 
+    filter: drop-shadow(5px 5px 0px rgba(0,0,0,0.1));
 }
 
 footer {
